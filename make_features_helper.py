@@ -47,7 +47,12 @@ def get_embeddings(text, embedding_model=DEFAULT_MODEL, tokenizer=DEFAULT_TOKENI
   tokenized_text = {k: v.to(DEVICE) for k, v in tokenized_text.items()}
   with torch.no_grad():
     outputs = embedding_model(**tokenized_text)
-  return outputs.last_hidden_state[:, 0, :][0]
+  embeddings = outputs.last_hidden_state[:, 0, :][0].cpu()
+  del tokenized_text
+  del outputs
+  torch.cuda.empty_cache()
+
+  return embeddings
 
 def word_ratio(text: str, provided_words):
   """
@@ -87,7 +92,7 @@ def avg_word_length(text_sample):
   Takes in a single piece of text and returns the average word length
   """
   words = [word for word in text_sample.split()]
-  return sum([len(word) for word in words])/len(words)
+  return sum([len(word) for word in words])/max(len(words), 1)
 
 def sia_sentiment(text_sample):
   """
@@ -103,11 +108,11 @@ def avg_sentence_length_in_words(sentences: list[str]):
   """
   Takes in a list of sentences and returns an average sentence length in words
   """
-  return [len(sentence.split()) for sentence in sentences]/len(sentences)
+  return sum([len(sentence.split()) for sentence in sentences])/max(len(sentences), 1)
 
 def avg_sentence_length_in_characters(sentences: list[str]):
   """
   Takes in a list of sentences and returns an average sentence length in characters
   """
-  return [len(sentence) for sentence in sentences]/len(sentences)
+  return sum([len(sentence) for sentence in sentences])/max(len(sentences), 1)
 
