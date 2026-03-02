@@ -12,6 +12,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Downloads
+models/
+
 # Distribution / packaging
 .Python
 build/
