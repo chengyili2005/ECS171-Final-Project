@@ -38,7 +38,7 @@ import torch
 app = Flask(__name__, static_folder='frontend/build', static_url_path='')
 
 # Model paths
-MODELS_DIR = 'models'
+MODELS_DIR = '../models'
 
 XGB_MODEL_PATH = os.path.join(MODELS_DIR, 'xgb_classifier.joblib')
 XGB_ENCODER_PATH = os.path.join(MODELS_DIR, 'xgb_label_encoder.joblib')

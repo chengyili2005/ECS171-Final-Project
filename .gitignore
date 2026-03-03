@@ -13,7 +13,10 @@ __pycache__/
 *.so
 
 # Downloads
-models/
+*.pt
+*.joblib
+lstm_*
+*.keras
 
 # Distribution / packaging
 .Python
