@@ -13,8 +13,7 @@ git clone https://github.com/chengyili2005/ECS171-Final-Project.git
 
 Download our models and import them into the `models/` directory
 1. Go to our [Google Drive](https://drive.google.com/drive/folders/1cI5vjc2AmUdvT4I3CQk7DZd5GbJiVfvd?usp=sharing) and download the models
-2. Drag them into `models/`
-   - `models/` should look like:
+2. Drag them into the `models/` directory
    ```
    - models/
     - bert_classifier.py
