@@ -30,6 +30,7 @@ import pandas as pd
 
 # For Neural Network
 import tensorflow as tf
+tf.config.set_visible_devices([], 'GPU')
 
 # For LSTM
 import json
@@ -63,7 +64,7 @@ models = {
 def load_models():
     try:
 
-        DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        DEVICE = "cpu" # Models are small enough, I think CPU is good for our use case
         FIRST_PERSON = ['i', 'me', 'my', 'mine', 'myself']
         NEGATIVES = ['no', 'not', 'never', 'nothing', 'wrong', 'nope']
         SUICIDE_WORDS = ['die', 'end', 'forever', 'leave', 'gone', 'suicide', 'kill']

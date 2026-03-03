@@ -66,8 +66,10 @@ Setting up the backend
 
 - Check if backend is up
   - Open your browser to `http://127.0.0.1:5000/` to ensure the URL exists.
+  - The backend will exist for as long as this terminal does. To stop it, press `Ctrl+C`.
 
 Setting up the frontend
+- Open a new terminal at `ECS-171-Final-Project/`
 - Install frontend dependencies
   ```bash
   # Assuming you are in the ECS-171-Final-Project directory
@@ -76,17 +78,23 @@ Setting up the frontend
   # Install node dependencies
   npm install
   ```
-  - Debugging: I had a problem with react-scripts, but the following fixed it
+  - Debugging: If there's a problem with 28 vulnerabilities... uh don't worry about it! 😅
+  - Debugging: I also had a problem with react-scripts, but the following fixed it
     ```bash
       npm install react-scripts@5.0.1 --save # If not already installed
-      echo "DANGEROUSLY_DISABLE_HOST_CHECK=true" > .env
     ```
 - Start the frontend
   ```bash
   # Still in the 171_app/frontend directory
   npm start
   ```
-  - Debugging: A note from `171_app/RUN_INSTRUCTIONS.md`
+  - Debugging: Here I had an issue from the template code & the react-script version, but the following fixed it
+    ```bash
+    echo "DANGEROUSLY_DISABLE_HOST_CHECK=true" > .env
+    npm start
+    ```
+
+  - Debugging: Here's another note from `171_app/RUN_INSTRUCTIONS.md`
       - (This will usually open on `http://localhost:3000`. You might need to add a proxy to `frontend/package.json` if you encounter API communication issues, like `"proxy": "http://127.0.0.1:5000"`.)
 
 The frontend is now being displayed in `http://localhost:3000`, and the backend `http://127.0.0.1:5000` is being called via the frontend.

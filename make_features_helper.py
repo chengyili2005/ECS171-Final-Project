@@ -12,7 +12,8 @@ Helper functions to create certain features
 nltk.download('punkt')
 nltk.download('vader_lexicon')
 
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+DEVICE = "cpu" # For deploying the web app, CPU is good enough since we're not bulk inferencing on a BUNCH of texts.
 DEFAULT_TOKENIZER = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
 DEFAULT_MODEL = DistilBertModel.from_pretrained('distilbert-base-uncased')
 DEFAULT_MODEL.to(DEVICE)
