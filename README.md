@@ -99,3 +99,17 @@ Setting up the frontend
 
 The frontend is now being displayed in `http://localhost:3000`, and the backend `http://127.0.0.1:5000` is being called via the frontend.
 
+# Extra
+If you want to view this project on another device you can do Ngrok tunneling. Here's how I did it:
+- Build static frontend files so we can serve everything in the backend port.
+  ```bash
+  # ECS171-Final-Project/171_app/frontend
+  npm run build
+  ```
+- Serve.
+  ```bash
+  # Forwarding
+  ngrok http 5000
+  ```
+- Save the forwarding link in a safe space and view.
+

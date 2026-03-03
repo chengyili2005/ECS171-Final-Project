@@ -274,10 +274,6 @@ def init_db():
 
 init_db()
 
-@app.route('/')
-def index():
-    return "Backend is up and running!"
-
 @app.route('/api/journal', methods=['GET'])
 def get_journal():
     date = request.args.get('date')
@@ -351,6 +347,12 @@ def predict():
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
+
+    # If not built, atleast show that it's running
+    if not os.path.exists(os.path.join(app.static_folder, 'index.html')):
+        return "Backend is up and running!"
+    
+    # Build static application
     if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
         return send_from_directory(app.static_folder, path)
     else:
