@@ -2,9 +2,12 @@
 Sentiment Analysis for mental health guardrails
 
 # Information
-TODO
 
-# Setup
+This class project explores how sentiment analysis can be applied for online mental health guardrails.
+
+Click [here](#) to see our report.
+
+#  Setup
 
 Clone this directory
 ```
